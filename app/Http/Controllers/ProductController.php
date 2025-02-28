@@ -11,10 +11,18 @@ class ProductController extends Controller
     }
 
     public function create() {
-        return 'products create';
+        return 'product create';
     }
 
     public function store() {
-        return 'products store';
+        return 'product store';
+    }
+
+    public function show($product) {
+        return "product show: {$product}";
+    }
+
+    public function edit($product) {
+        return "product edit: {$product}";
     }
 }
