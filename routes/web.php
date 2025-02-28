@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', [MainController::class, 'index']);
+//Route::get('/', [MainController::class, 'index']);
 
-Route::prefix('products')->name('products.')->group(function () {
+Route::prefix('/')->name('products.')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('index');
     Route::get('/create', [ProductController::class, 'create'])->name('create');
     Route::post('/', [ProductController::class, 'store'])->name('store');

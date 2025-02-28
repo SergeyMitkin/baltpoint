@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Couchbase\View;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function index() {
-        return 'products list';
+
     }
 
     public function create() {
