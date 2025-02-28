@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index() {
+    public function index():\Illuminate\View\View {
+        $title = 'Products';
+        $h1 = 'Products';
 
+        return view('products.index', compact('title', 'h1'));
     }
 
     public function create() {
