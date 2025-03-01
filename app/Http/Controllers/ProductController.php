@@ -10,7 +10,8 @@ class ProductController extends Controller
 {
     public function index(): View
     {
-        return view('products.index');
+        $products = Product::all();
+        return view('products.index', ['products' => $products]);
     }
 
     public function create(): View
@@ -29,6 +30,11 @@ class ProductController extends Controller
 
         $newProduct = Product::create($data);
 
+        return redirect()->route('product.index');
+    }
+
+    public function edit(Product $product): View
+    {
         return redirect()->route('product.index');
     }
 }

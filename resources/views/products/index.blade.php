@@ -9,6 +9,26 @@
 </head>
 <body>
     <H1>Product</H1>
-    <div>index</div>
+    <div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Количество</th>
+                <th>Цена</th>
+            </tr>
+            @foreach($products as $product)
+                <tr>
+                    <td>{{ $product->id }}</td>
+                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->description }}</td>
+                    <td>{{ $product->quantity }}</td>
+                    <td>{{ $product->price }}</td>
+                    <td>Редактировать</td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
 </body>
 </html>
