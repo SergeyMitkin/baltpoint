@@ -23,7 +23,13 @@ class ProductController extends Controller
     }
 
     public function show($product) {
-        return "product show: {$product}";
+        $title = $product;
+        $h1 = $product;
+
+//        dump($product);
+
+        return view('products.show', compact('title', 'h1'));
+//        return "product show: {$product}";
     }
 
     public function edit($product) {
