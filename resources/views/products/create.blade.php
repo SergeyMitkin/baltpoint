@@ -9,10 +9,12 @@
 </head>
 <body>
     <H1>Create a product</H1>
-    <form method="post" action="">
+    <form method="post" action="{{ route('product.store') }}">
+        @csrf
+        @method('post')
         <div>
             <label>Название
-                <input type="text" name="name" placeholder="Название">
+                <input type="text" name="name" required placeholder="Название">
             </label>
         </div>
 
@@ -24,13 +26,13 @@
 
         <div>
             <label>Цена
-                <input type="number" name="price" placeholder="1.00" min="0">
+                <input type="number" name="price" step="0.01" min="0" required value="1.00">
             </label>
         </div>
 
         <div>
             <label>Quanity
-                <input type="number" name="quantity" value="1" min="0">
+                <input type="number" name="quantity" min="0" required value="1">
             </label>
         </div>
 
