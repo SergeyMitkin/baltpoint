@@ -25,12 +25,28 @@ class BrandController extends Controller
             'name' => 'required'
         ]);
 
+        $brand = new Brand();
+        // Проверка уникальности названия бренда
+        $brand->checkExistingBrand($data['name'], $request->id);
+
         // Если приходит id, товар редактируется
         if($request->id) {
             Brand::edit($data);
         } else {
             Brand::create($data);
         }
+
+        return redirect()->route('index');
+    }
+
+    public function edit(Brand $brand): View
+    {
+        return view('brands.edit', ['brand' => $brand]);
+    }
+
+    public function delete(Product $product)
+    {
+        $product->delete();
 
         return redirect()->route('index');
     }
