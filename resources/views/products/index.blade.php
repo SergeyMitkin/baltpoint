@@ -12,6 +12,8 @@
 
     <div>
         <a href="{{ route('product.create') }}"><button>Создать товар</button></a>
+
+        <a href="{{ route('brand.create') }}"><button>Создать бренд</button></a>
     </div>
 
     <div>

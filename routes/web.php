@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,11 +10,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index'])->name('index');
 
-Route::prefix('/products')->name('product.')->group(function () {
-    Route::get('/product/create', [ProductController::class, 'create'])->name('create');
-    Route::post('/product', [ProductController::class, 'store'])->name('store');
-    Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('edit');
-    Route::post('/product/{product}/delete', [ProductController::class, 'delete'])->name('delete');
+Route::prefix('/product')->name('product.')->group(function () {
+    Route::get('/create', [ProductController::class, 'create'])->name('create');
+    Route::post('/', [ProductController::class, 'store'])->name('store');
+    Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('edit');
+    Route::post('/{product}/delete', [ProductController::class, 'delete'])->name('delete');
+});
+
+Route::prefix('/brand')->name('brand.')->group(function () {
+    Route::get('/', [BrandController::class, 'index'])->name('index');
+    Route::get('/create', [BrandController::class, 'create'])->name('create');
+    Route::post('/', [BrandController::class, 'store'])->name('store');
+    Route::get('/{brand}/edit', [BrandController::class, 'edit'])->name('edit');
+    Route::post('/{brand}/delete', [BrandController::class, 'delete'])->name('delete');
 });
 
 //use App\Http\Controllers\MainController;
