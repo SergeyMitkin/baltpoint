@@ -17,7 +17,10 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->integer('quantity');
             $table->decimal('price');
+            $table->unsignedBigInteger('brand_id');
             $table->timestamps();
+
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
         });
     }
 
