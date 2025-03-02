@@ -26,7 +26,14 @@
                     <td>{{ $product->quantity }}</td>
                     <td>{{ $product->price }}</td>
                     <td>
-                        <a href="{{ route('product.edit', ['product' => $product]) }}">Редактировать</a>
+                        <a href="{{ route('product.edit', ['product' => $product]) }}"><button>Редактировать</button></a>
+                    </td>
+                    <td>
+                        <form method="post" action="{{ route('product.delete', ['product' => $product->id]) }}">
+                            @csrf
+                            @method('post')
+                            <input type="submit" value="Удалить">
+                        </form>
                     </td>
                 </tr>
             @endforeach

@@ -43,4 +43,10 @@ class ProductController extends Controller
     {
         return view('products.edit', ['product' => $product]);
     }
+
+    public function delete(Product $product)
+    {
+        $product->delete();
+        return redirect()->route('product.index');
+    }
 }
