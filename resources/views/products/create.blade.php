@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <H1>Create a product</H1>
+    <H1>Создать товар</H1>
     <form method="post" action="{{ route('product.store') }}">
         @csrf
         @method('post')
@@ -25,17 +25,16 @@
         </div>
 
         <div>
-            <label>Цена
-                <input type="number" name="price" step="0.01" min="0" required value="1.00">
-            </label>
-        </div>
-
-        <div>
-            <label>Quanity
+            <label>Количество
                 <input type="number" name="quantity" min="0" required value="1">
             </label>
         </div>
 
+        <div>
+            <label>Цена
+                <input type="number" name="price" step="0.01" min="0" required value="1.00">
+            </label>
+        </div>
         <div>
             <input type="submit" value="Сохранить">
         </div>

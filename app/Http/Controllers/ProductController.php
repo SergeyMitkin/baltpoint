@@ -22,19 +22,32 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
+            'id' => 'integer',
             'name' => 'required',
             'description' => 'nullable',
-            'price' => 'required|decimal:0,2',
             'quantity' => 'required|integer',
+            'price' => 'required|decimal:0,2'
         ]);
 
-        $newProduct = Product::create($data);
+        // Если приходит id, товар редактируется
+        if($request->id) {
+            $product = Product::find($request->id);
+
+            $product->name = $data['name'];
+            $product->description = $data['description'];
+            $product->quantity = $data['quantity'];
+            $product->price = $data['price'];
+
+            $product->save();
+        } else {
+            Product::create($data);
+        }
 
         return redirect()->route('product.index');
     }
 
     public function edit(Product $product): View
     {
-        return redirect()->route('product.index');
+        return view('products.edit', ['product' => $product]);
     }
 }

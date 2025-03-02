@@ -25,7 +25,9 @@
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->quantity }}</td>
                     <td>{{ $product->price }}</td>
-                    <td>Редактировать</td>
+                    <td>
+                        <a href="{{ route('product.edit', ['product' => $product]) }}">Редактировать</a>
+                    </td>
                 </tr>
             @endforeach
         </table>
