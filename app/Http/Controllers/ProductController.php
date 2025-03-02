@@ -31,14 +31,7 @@ class ProductController extends Controller
 
         // Если приходит id, товар редактируется
         if($request->id) {
-            $product = Product::find($request->id);
-
-            $product->name = $data['name'];
-            $product->description = $data['description'];
-            $product->quantity = $data['quantity'];
-            $product->price = $data['price'];
-
-            $product->save();
+            Product::edit($data);
         } else {
             Product::create($data);
         }
