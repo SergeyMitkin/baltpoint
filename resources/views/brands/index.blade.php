@@ -8,6 +8,10 @@
     <title>Бренды</title>
 </head>
 <body>
+<nav>
+    <a href="{{ route('index') }}">Товары</a>
+</nav>
+
 <H1>Бренды</H1>
 
 <div>
