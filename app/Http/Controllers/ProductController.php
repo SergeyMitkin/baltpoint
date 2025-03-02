@@ -46,7 +46,9 @@ class ProductController extends Controller
 
     public function edit(Product $product): View
     {
-        return view('products.edit', ['product' => $product]);
+        $brands = Brand::all();
+
+        return view('products.edit', ['product' => $product, 'brands' => $brands]);
     }
 
     public function delete(Product $product)
