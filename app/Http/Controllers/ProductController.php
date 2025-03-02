@@ -36,7 +36,7 @@ class ProductController extends Controller
             Product::create($data);
         }
 
-        return redirect()->route('product.index');
+        return redirect()->route('index');
     }
 
     public function edit(Product $product): View
@@ -47,6 +47,6 @@ class ProductController extends Controller
     public function delete(Product $product)
     {
         $product->delete();
-        return redirect()->route('product.index');
+        return redirect()->route('index');
     }
 }
