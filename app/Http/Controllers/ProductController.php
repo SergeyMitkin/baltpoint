@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -10,13 +11,16 @@ class ProductController extends Controller
 {
     public function index(): View
     {
-        $products = Product::all();
-        return view('products.index', ['products' => $products]);
+        $products= Product::with('brand')->get();
+
+        return view('index', ['products' => $products]);
     }
 
     public function create(): View
     {
-        return view('products.create');
+        $brands = Brand::all();
+
+        return view('products.create', ['brands' => $brands]);
     }
 
     public function store(Request $request)
@@ -26,6 +30,7 @@ class ProductController extends Controller
             'name' => 'required',
             'description' => 'nullable',
             'quantity' => 'required|integer',
+            'brand_id' => 'required|integer',
             'price' => 'required|decimal:0,2'
         ]);
 
@@ -47,6 +52,7 @@ class ProductController extends Controller
     public function delete(Product $product)
     {
         $product->delete();
+
         return redirect()->route('index');
     }
 }

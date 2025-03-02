@@ -15,7 +15,7 @@ class BrandController extends Controller
     }
     public function create(): View
     {
-        return view('brand.create');
+        return view('brands.create');
     }
 
     public function store(Request $request)

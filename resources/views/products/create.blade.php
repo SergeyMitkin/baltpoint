@@ -19,6 +19,16 @@
         </div>
 
         <div>
+            <label>Бренд
+                <select name="brand_id">
+                    @foreach($brands as $brand)
+                        <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                    @endforeach
+                </select>
+            </label>
+        </div>
+
+        <div>
             <label>Описание
                 <input type="text" name="description" placeholder="Описание">
             </label>

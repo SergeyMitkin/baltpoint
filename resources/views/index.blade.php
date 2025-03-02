@@ -12,6 +12,8 @@
 
 <div>
     <a href="{{ route('product.create') }}"><button>Создать товар</button></a>
+
+    <a href="{{ route('brand.create') }}"><button>Создать бренд</button></a>
 </div>
 
 <div>
@@ -19,6 +21,7 @@
         <tr>
             <th>ID</th>
             <th>Название</th>
+            <th>Бренд</th>
             <th>Описание</th>
             <th>Количество</th>
             <th>Цена</th>
@@ -27,6 +30,7 @@
             <tr>
                 <td>{{ $product->id }}</td>
                 <td>{{ $product->name }}</td>
+                <td>{{ $product->brand->name }}</td>
                 <td>{{ $product->description }}</td>
                 <td>{{ $product->quantity }}</td>
                 <td>{{ $product->price }}</td>
