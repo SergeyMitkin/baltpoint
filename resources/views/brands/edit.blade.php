@@ -9,6 +9,13 @@
 </head>
 <body>
 <H1>Редактировать бренд</H1>
+
+<div>
+    @if(session()->has('existing_brand_name'))
+        <span>Бренд с таким названиемуже существует!</span>
+    @endif
+</div>
+
 <form method="post" action="{{ route('brand.store') }}">
     @csrf
     @method('post')
@@ -16,7 +23,13 @@
 
     <div>
         <label>Название
-            <input type="text" name="name" required placeholder="Название" value="{{ $brand->name }}">
+            <input type="text" name="name" required placeholder="Название"
+                @if(session()->has('existing_brand_name'))
+                    value="{{ session('existing_brand_name') }}"
+                @else
+                    value="{{ $brand->name }}"
+                @endif
+            >
         </label>
     </div>
 
