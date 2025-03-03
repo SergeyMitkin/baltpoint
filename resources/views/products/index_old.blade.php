@@ -22,7 +22,6 @@
                 <th>ID</th>
                 <th>Название</th>
                 <th>Описание</th>
-                <th>Количество</th>
                 <th>Цена</th>
             </tr>
             @foreach($products as $product)
@@ -30,7 +29,6 @@
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->description }}</td>
-                    <td>{{ $product->quantity }}</td>
                     <td>{{ $product->price }}</td>
                     <td>
                         <a href="{{ route('product.edit', ['product' => $product]) }}"><button>Редактировать</button></a>

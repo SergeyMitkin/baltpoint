@@ -35,12 +35,6 @@
         </div>
 
         <div>
-            <label>Количество
-                <input type="number" name="quantity" min="0" required value="1">
-            </label>
-        </div>
-
-        <div>
             <label>Цена
                 <input type="number" name="price" step="0.01" min="0" required value="1.00">
             </label>

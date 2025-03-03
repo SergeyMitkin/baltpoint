@@ -11,7 +11,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'price', 'description', 'quantity', 'brand_id'];
+    protected $fillable = ['name', 'price', 'description', 'brand_id'];
 
     public function comments(): HasMany
     {
@@ -22,7 +22,6 @@ class Product extends Model
         $product = self::find($data['id']);
         $product->name = $data['name'];
         $product->description = $data['description'];
-        $product->quantity = $data['quantity'];
         $product->price = $data['price'];
         $product->brand_id = $data['brand_id'];
 

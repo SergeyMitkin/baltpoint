@@ -41,7 +41,6 @@ class ProductController extends Controller
             'id' => 'integer',
             'name' => 'required',
             'description' => 'nullable',
-            'quantity' => 'required|integer',
             'brand_id' => 'required|integer',
             'price' => 'required|decimal:0,2'
         ]);
