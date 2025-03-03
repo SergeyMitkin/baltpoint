@@ -8,44 +8,50 @@
     <title>Редактировать товар</title>
 </head>
 <body>
-<H1>Редактировать товар</H1>
-<form method="post" action="{{ route('product.store') }}">
-    @csrf
-    @method('post')
-    <input type="hidden" name="id" value="{{ $product->id }}">
+    <nav>
+        <a href="{{ route('index') }}">Товары</a>
+        <a href="{{ route('brand.index') }}">Бренды</a>
+    </nav>
 
-    <div>
-        <label>Название
-            <input type="text" name="name" required placeholder="Название" value="{{ $product->name }}">
-        </label>
-    </div>
+    <H1>Редактировать товар</H1>
 
-    <div>
-        <label>Бренд
-            <select name="brand_id">
-                @foreach($brands as $brand)
-                    <option value="{{ $brand->id }}" <?php echo ($brand->id === $product->brand_id) ? 'selected' : '';?>>{{ $brand->name }}</option>
-                @endforeach
-            </select>
-        </label>
-    </div>
+    <form method="post" action="{{ route('product.store') }}">
+        @csrf
+        @method('post')
+        <input type="hidden" name="id" value="{{ $product->id }}">
 
-    <div>
-        <label>Описание
-            <input type="text" name="description" placeholder="Описание" value="{{ $product->description }}">
-        </label>
-    </div>
+        <div>
+            <label>Название
+                <input type="text" name="name" required placeholder="Название" value="{{ $product->name }}">
+            </label>
+        </div>
 
-    <div>
-        <label>Цена
-            <input type="number" name="price" step="0.01" min="0" required value="{{ $product->price }}">
-        </label>
-    </div>
+        <div>
+            <label>Бренд
+                <select name="brand_id">
+                    @foreach($brands as $brand)
+                        <option value="{{ $brand->id }}" <?php echo ($brand->id === $product->brand_id) ? 'selected' : '';?>>{{ $brand->name }}</option>
+                    @endforeach
+                </select>
+            </label>
+        </div>
 
-    <div>
-        <input type="submit" value="Сохранить">
-    </div>
-</form>
+        <div>
+            <label>Описание
+                <input type="text" name="description" placeholder="Описание" value="{{ $product->description }}">
+            </label>
+        </div>
+
+        <div>
+            <label>Цена
+                <input type="number" name="price" step="0.01" min="0" required value="{{ $product->price }}">
+            </label>
+        </div>
+
+        <div>
+            <input type="submit" value="Сохранить">
+        </div>
+    </form>
 </body>
 </html>
 

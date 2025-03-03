@@ -15,6 +15,10 @@
 <H1>Бренды</H1>
 
 <div>
+    <a href="{{ route('brand.create') }}"><button>Создать бренд</button></a>
+</div>
+
+<div>
     <table>
         <tr>
             <th>ID</th>

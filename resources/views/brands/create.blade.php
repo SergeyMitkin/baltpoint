@@ -8,6 +8,11 @@
     <title>Создать бренд</title>
 </head>
 <body>
+    <nav>
+        <a href="{{ route('index') }}">Товары</a>
+        <a href="{{ route('brand.index') }}">Бренды</a>
+    </nav>
+
     <H1>Создать бренд</H1>
 
     <div>

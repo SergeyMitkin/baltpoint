@@ -8,7 +8,13 @@
     <title>Создать товар</title>
 </head>
 <body>
+    <nav>
+        <a href="{{ route('index') }}">Товары</a>
+        <a href="{{ route('brand.index') }}">Бренды</a>
+    </nav>
+
     <H1>Создать товар</H1>
+
     <form method="post" action="{{ route('product.store') }}">
         @csrf
         @method('post')

@@ -8,35 +8,40 @@
     <title>Редактировать бренд</title>
 </head>
 <body>
-<H1>Редактировать бренд</H1>
+    <nav>
+        <a href="{{ route('index') }}">Товары</a>
+        <a href="{{ route('brand.index') }}">Бренды</a>
+    </nav>
 
-<div>
-    @if(session()->has('existing_brand_name'))
-        <span>Бренд с таким названиемуже существует!</span>
-    @endif
-</div>
-
-<form method="post" action="{{ route('brand.store') }}">
-    @csrf
-    @method('post')
-    <input type="hidden" name="id" value="{{ $brand->id }}">
+    <H1>Редактировать бренд</H1>
 
     <div>
-        <label>Название
-            <input type="text" name="name" required placeholder="Название"
-                @if(session()->has('existing_brand_name'))
-                    value="{{ session('existing_brand_name') }}"
-                @else
-                    value="{{ $brand->name }}"
-                @endif
-            >
-        </label>
+        @if(session()->has('existing_brand_name'))
+            <span>Бренд с таким названиемуже существует!</span>
+        @endif
     </div>
 
-    <div>
-        <input type="submit" value="Сохранить">
-    </div>
-</form>
+    <form method="post" action="{{ route('brand.store') }}">
+        @csrf
+        @method('post')
+        <input type="hidden" name="id" value="{{ $brand->id }}">
+
+        <div>
+            <label>Название
+                <input type="text" name="name" required placeholder="Название"
+                    @if(session()->has('existing_brand_name'))
+                        value="{{ session('existing_brand_name') }}"
+                    @else
+                        value="{{ $brand->name }}"
+                    @endif
+                >
+            </label>
+        </div>
+
+        <div>
+            <input type="submit" value="Сохранить">
+        </div>
+    </form>
 </body>
 </html>
 
